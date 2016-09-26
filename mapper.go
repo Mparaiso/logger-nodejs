@@ -199,9 +199,9 @@ func noop(s string) string { return s }
 // BuildFieldToStructFieldTagMapper takes a struct
 // and build a db field to field tag mapper function
 // that can be used in MapRowsToSliceOfStruct or MapRowToStruct
-// for instance, given the struct :
+// for instance, given the struct:
 //
-//		type Foo struct{
+//      type Foo struct{
 //         Bar `sql:"bar"`
 //      }
 //
