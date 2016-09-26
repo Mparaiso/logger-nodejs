@@ -150,11 +150,16 @@ func MapRowsToSliceOfStruct(scanner RowsScanner, pointerToASliceOfStructs interf
 }
 
 // MapRowToStruct  automatically maps a db row to a struct
+//
 // columns are the names of the columns in the row, they should match the fieldnames of Struct unless an optional transform function
 // is passed.
-// scanner is the Scanner
+//
+// scanner is the Scanner (a sql.Row type for instance)
+//
 // Struct is a pointer to the struct that needs to be populated by the row data
+//
 // ignoreMissingFields will ignore missing fields if the number of columns in the row doesn't match the number of fields in the struct
+//
 // transforms is an optinal function that changes the name of the columns to match the name of the fields
 func MapRowToStruct(columns []string, scanner Scanner, Struct interface{}, ignoreMissingFields bool, transforms ...func(string) string) error {
 	if len(transforms) == 0 {
