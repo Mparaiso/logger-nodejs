@@ -21,7 +21,7 @@ import (
 	"database/sql"
 	_ "github.com/amattn/go-sqlite3"
 	ex "github.com/mparaiso/expect-go"
-	mapper "github.com/mparaiso/sql-row-mapper-go"
+	mapper "github.com/mparaiso/simple-row-mapper-go"
 	"testing"
 	"time"
 )
