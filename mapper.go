@@ -201,7 +201,7 @@ func MapRowToStruct(columns []string, scanner Scanner, Struct interface{}, ignor
 
 func noop(s string) string { return s }
 
-// CreatTagMapperFunc creates a function that
+// CreateTagMapperFunc creates a function that
 // can be used to map db fields to struct fields
 // through the use of struct tags.
 //
@@ -212,11 +212,11 @@ func noop(s string) string { return s }
 //      }
 //
 //      foo := new(Foo)
-//      tagMapper := CreatTagMapperFunc(Foo{})
+//      tagMapper := CreateTagMapperFunc(Foo{})
 //      err := MapRowToStruct([]string{"bar"},someRow,foo,true,tagMapper)
 //
 // Will map Bar field in struct to bar DB field in the row
-func CreatTagMapperFunc(Struct interface{}, tagname ...string) (func(string) string, error) {
+func CreateTagMapperFunc(Struct interface{}, tagname ...string) (func(string) string, error) {
 	structValue := reflect.Indirect(reflect.ValueOf(Struct))
 	if structValue.Kind() != reflect.Struct {
 		return nil, fmt.Errorf("Struct expected, got %#v", Struct)
